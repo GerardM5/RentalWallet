@@ -1,17 +1,30 @@
 package com.example.rentalwallet;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import java.util.UUID;
 
+@Entity
 public class Rental {
-
+    @Id
     private final String id = UUID.randomUUID().toString();
     private String name;
     private String location;
     private String price;
     private String url;
     private String photo;//TODO
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;//??
     private String distanceFromWorkOfUser;//TODO
     private boolean visited;
+
+    public User getUser() {
+        return user;
+    }
 
     public Rental(){
 
