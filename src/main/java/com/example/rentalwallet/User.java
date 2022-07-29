@@ -1,20 +1,33 @@
 package com.example.rentalwallet;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+@Entity(name = "users")
 public class User {
 
-    private final String id = UUID.randomUUID().toString();
+    @Id
+    private String id = UUID.randomUUID().toString();
     private String name;
     private String userName;
     private String password;
     private String workLocation;
-    private List<Rental> rentals;
+    private String role;
+
+    @OneToMany(mappedBy = "user")
+    @JsonManagedReference
+    private List<Rental> rentals = new ArrayList<>();
 
     public User() {
 
     }
+
 
     public User(String name, String userName, String password, String workLocation) {
         this.name = name;
@@ -24,8 +37,20 @@ public class User {
         this.rentals = null;
     }
 
+    public User updateUser(User user){
+        this.name = name;
+        this.userName = userName;
+        this.password = password;
+        this.workLocation = workLocation;
+        return user;
+    }
+
     public String getId() {
         return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -66,5 +91,13 @@ public class User {
 
     public void setRentals(List<Rental> rentals) {
         this.rentals = rentals;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 }
