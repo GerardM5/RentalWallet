@@ -3,7 +3,7 @@ import "./Nav.css";
 export default function Nav() {
   return (
     <nav className="container">
-      <div className="navSide">logo</div>
+      <div className="navSide">Logo</div>
       <div className="navSide">usuario</div>
     </nav>
   );
