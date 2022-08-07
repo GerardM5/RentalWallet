@@ -1,6 +1,6 @@
 import * as React from "react"
 
-const SvgComponent = (props: JSX.IntrinsicAttributes & React.SVGProps<SVGSVGElement>) => (
+const LargeLogo = (props) => (
   <svg
     width={502}
     height={100}
@@ -20,4 +20,4 @@ const SvgComponent = (props: JSX.IntrinsicAttributes & React.SVGProps<SVGSVGElem
   </svg>
 )
 
-export default SvgComponent
+export default LargeLogo
