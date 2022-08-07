@@ -1,28 +1,25 @@
-import "./styles/App.css";
-import Nav from "./components/Nav";
+import React from "react";
 
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Rental from "./pages/Rental";
-import Profile from "./pages/Profile";
-import Login from "./pages/Login";
-import About from "./pages/About";
-import Home from "./pages/Home";
+import { useRoutes } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import LoginPage from "./pages/LoginPage";
+import ProfilePage from "./pages/ProfilePage";
 
-function App() {
-  return (
-    <div className="App">
-      <Nav />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/rental" element={<Rental />} />
-        </Routes>
-      </BrowserRouter>
-    </div>
-  );
+export default function App() {
+  const routes = useRoutes([
+    {
+      exact: true,
+      path: "/",
+      element: <HomePage />,
+    },
+    {
+      path: "/login",
+      element: <LoginPage />,
+    },
+    {
+      path: "/profile/:id",
+      element: <ProfilePage />,
+    },
+  ]);
+  return routes;
 }
-
-export default App;
