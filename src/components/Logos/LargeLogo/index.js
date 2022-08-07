@@ -1,4 +1,4 @@
-import * as React from "react"
+import * as React from "react";
 
 const LargeLogo = (props) => (
   <svg
@@ -18,6 +18,6 @@ const LargeLogo = (props) => (
       fill="#2B2D42"
     />
   </svg>
-)
+);
 
-export default LargeLogo
+export default LargeLogo;
