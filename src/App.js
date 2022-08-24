@@ -1,9 +1,7 @@
 import React from "react";
 
 import { useRoutes } from "react-router-dom";
-import HomePage from "./pages/HomePage";
-import LoginPage from "./pages/LoginPage";
-import ProfilePage from "./pages/ProfilePage";
+import HomePage from "pages/HomePage";
 
 export default function App() {
   const routes = useRoutes([
@@ -12,14 +10,7 @@ export default function App() {
       path: "/",
       element: <HomePage />,
     },
-    {
-      path: "/login",
-      element: <LoginPage />,
-    },
-    {
-      path: "/profile/:id",
-      element: <ProfilePage />,
-    },
+    
   ]);
   return routes;
 }
