@@ -13,7 +13,7 @@ export default function AppLayout({ children }: AppLayoutProps) {
         <section className="leftSection">
           <img
             src={process.env.PUBLIC_URL + "images/LargeLogo.png"}
-            width={250}
+            className="logoImage"
             alt="logo"
           />
         </section>

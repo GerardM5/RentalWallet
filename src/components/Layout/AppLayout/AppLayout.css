@@ -33,6 +33,11 @@
     align-content: flex-start;
 }
 
+.logoImage {
+    width: 15vw;
+
+}
+
 .navContainer {
     display: flex;
     flex-direction: row;
@@ -50,6 +55,5 @@
     display: flex;
     width: 100%;
     border-radius: 25px;
-    padding: 10px 15px;
     height: 100%;
 }
