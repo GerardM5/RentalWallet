@@ -1,32 +1,34 @@
 import React from "react";
 import "./AppLayout.css";
-import { FaSearch } from "react-icons/fa";
+import ProfilePart from "./ProfilePart/ProfilePart";
+import SearchPart from "./SearchPart/SearchPart";
 
-export default function AppLayout({ children }) {
+interface AppLayoutProps {
+  children?: React.ReactNode;
+}
+export default function AppLayout({ children }: AppLayoutProps) {
   return (
     <div className="container">
-      <section className="leftSection">NAV</section>
-      <section className="rightSection">
-        <nav className="navContainer">
-          <div className="navRight">
-            <div className="searchContainer">
-              <input
-                type="text"
-                placeholder="Busca tu anuncio perfecto"
-                className="inputSearch"
-              />
-              <button className="btnSearch">
-                <span className="searchIcon">
-                  <FaSearch />
-                </span>
-                <span className="searchText">Buscar</span>
-              </button>
+      <div className="content">
+        <section className="leftSection">
+          <img
+            src={process.env.PUBLIC_URL + "images/LargeLogo.png"}
+            width={250}
+            alt="logo"
+          />
+        </section>
+        <section className="rightSection">
+          <nav className="navContainer">
+            <div className="navRight">
+              <SearchPart />
             </div>
-          </div>
-          <div className="navLeft">ICONS</div>
-        </nav>
-        {children}
-      </section>
+            <div className="navLeft">
+              <ProfilePart />
+            </div>
+          </nav>
+          <main className="mainContainer">{children}</main>
+        </section>
+      </div>
     </div>
   );
 }
